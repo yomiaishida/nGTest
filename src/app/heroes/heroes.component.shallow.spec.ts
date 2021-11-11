@@ -26,7 +26,7 @@ describe('HeroesComponent (shallow tests)', () => {
       {id:2, name: 'Wonderful Woman', strength: 24},
       {id:3, name: 'SuperDude', strength: 55}
     ]
-    mockHeroService = jasmine.createSpyObj(['getHeroes, addHero, deleteHero']);
+    mockHeroService = jasmine.createSpyObj(['getHeroes', 'addHero', 'deleteHero']);
     TestBed.configureTestingModule({
       declarations: [
         HeroesComponent,
@@ -48,7 +48,7 @@ describe('HeroesComponent (shallow tests)', () => {
   })
 
   it('should create one li for each hero', () => {
-    mockHeroService.getHeroes.and.returnValue(of(HEROES))
+    mockHeroService.getHeroes.and.returnValue(of(HEROES));
     fixture.detectChanges();
 
     expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(3);
